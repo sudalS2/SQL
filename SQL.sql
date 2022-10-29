@@ -66,3 +66,137 @@ FROM DOCTOR
 WHERE MCDP_CD ='CS' OR MCDP_CD = 'GS' # = WHERE MCDP_CD IN ('CS','GS')
 ORDER BY HIRE_YMD DESC, DR_NAME
 ;
+
+## 모든 레코드 조회하기
+
+### 1.
+SELECT *
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID
+;
+
+## 역순 정렬하기
+
+### 1.
+SELECT NAME, DATETIME
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID desc
+;
+
+## 아픈 동물 찾기
+
+### 1.
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS
+WHERE INTAKE_CONDITION = 'Sick'
+ORDER BY ANIMAL_ID
+;
+
+## 어린 동물 찾기
+
+### 1.
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS
+WHERE INTAKE_CONDITION != 'Aged'
+ORDER BY ANIMAL_ID
+;
+
+## 동물의 아이디와 이름
+
+### 1.
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID
+;
+
+## 여러 기준으로 정렬하기
+
+### 1.
+SELECT ANIMAL_ID, NAME, DATETIME
+FROM ANIMAL_INS
+ORDER BY NAME, DATETIME DESC
+;
+
+## 상위 n개 레코드
+
+### 1.
+SELECT NAME
+FROM ANIMAL_INS
+ORDER BY DATETIME
+LIMIT 1 # 위에서 1개의 정보 추출
+;
+
+### 설명) limit 0, 1 : 위에서 0부터 1까지의 정보 추출
+
+### 2. Oracle
+SELECT NAME
+FROM (SELECT *
+     FROM ANIMAL_INS
+     ORDER BY DATETIME)
+WHERE ROWNUM <= 1
+;
+
+## 조건에 맞는 회원수 구하기
+
+### 1.
+SELECT COUNT(USER_ID) USERS
+FROM USER_INFO
+WHERE JOINED LIKE '2021%' AND AGE >= 20 AND AGE <= 29
+;
+
+### 2.
+SELECT COUNT(*) AS USERS
+FROM USER_INFO
+WHERE YEAR(JOINED) = 2021 AND AGE >= 20 AND AGE <= 29
+;
+
+### 3. Oracle
+SELECT COUNT(*) AS USERS
+FROM USER_INFO
+WHERE TO_CHAR(JOINED, 'YYYY') = '2021' AND AGE >= 20 AND AGE <= 29
+;
+
+## 
+### 1.
+### 2.
+
+
+## 
+### 1.
+### 2.
+
+
+## 
+### 1.
+### 2.
+
+
+## 
+### 1.
+### 2.
+
+
+## 
+### 1.
+### 2.
+
+
+## 
+### 1.
+### 2.
+
+
+## 
+### 1.
+### 2.
+
+
+## 
+### 1.
+### 2.
+
+
+## 
+### 1.
+### 2.
+
